@@ -1,0 +1,34 @@
+﻿@model Person[]
+
+@{ Layout = null; }
+
+<doctype html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Areas</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    </head>
+    <body class="m-1 p-1">
+        <table class="table table-bordered table-striped table-sm">
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+            </tr>
+            @foreach (Person person in @Model) 
+            {
+                <tr>
+                    <td>
+                        @person.Name
+                    </td>
+                    <td>
+                        @person.City
+                    </td>
+                </tr>
+            }
+        </table>
+        <a asp-action="Index" asp-controller="Home">Link</a>
+        <a asp-action="Index" asp-controller="Home" asp-route-area="">Link</a>
+    </body>
+    </html>
+</doctype>

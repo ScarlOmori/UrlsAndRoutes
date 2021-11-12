@@ -1,0 +1,33 @@
+﻿@model Result
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{ Layout = null; }
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Routing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="m-1 p-1">
+    <table class="table table-bordered table-striped table-sm">
+        <tr>
+            <th>Controller:</th>
+            <td>@Model.Controller</td>
+        </tr>
+        <tr>
+            <th>Action</th>
+            <td>@Model.Action</td>
+        </tr>
+        @foreach (string key in Model.Data.Keys)
+        {
+            <tr>
+                <th>@key :</th>
+                <td>@Model.Data[key]</td>
+            </tr>
+        }
+    </table>
+    <a asp-action="CustomVariable" asp-controller="Home" asp-route-id="Hello">This is an outgoing URL</a>
+</body>
+</html>
